@@ -15,7 +15,7 @@ const Theme = {
 }
 
 const switchBtn = document.querySelector(".theme-switch__toggle")
-debugger
+
 if (localStorage.getItem("current theme") === "dark-theme") {
   switchBtn.checked = true
   document.body.classList.add("dark-theme")
@@ -23,13 +23,13 @@ if (localStorage.getItem("current theme") === "dark-theme") {
 
 switchBtn.addEventListener("change", function (event) {
   if (event.target.checked) {
-    document.body.classList.toggle("dark-theme")
-    document.body.classList.remove("light-theme")
+    document.body.classList.toggle(Theme.DARK)
+    document.body.classList.remove(Theme.LIGHT)
     localStorage.setItem("current theme", Theme.DARK)
     // localStorage.getItem("current theme")
   } else {
     localStorage.setItem("current theme", Theme.LIGHT)
-    document.body.classList.toggle("dark-theme")
-    document.body.classList.add("light-theme")
+    document.body.classList.toggle(Theme.DARK)
+    document.body.classList.add(Theme.LIGHT)
   }
 })
